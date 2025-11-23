@@ -45,50 +45,71 @@ const FilterBar = ({ onSortByChange, sortBy }: FilterBarProps) => {
 export { FilterBar };
 
 const Card = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px 16px;
 
-  & .filter-bar {
+  .filter-bar {
     display: flex;
-    gap: 1rem;
+    gap: 0;
     align-items: center;
 
-    & button {
+    button {
       background-color: transparent;
       cursor: pointer;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      color: #9ca3af;
+      font-size: 14px;
+      font-weight: 500;
+      margin-right: 8px;
 
       &:hover {
-        background: #215ce524;
-        color: ${theme.primary};
-        transition: all 0.3s ease;
+        background-color: #374151;
+        color: #ffffff;
       }
 
       &.active {
-        background-color: ${theme.primary};
-        color: white;
+        background-color: #3b82f6;
+        color: #ffffff;
       }
     }
   }
-  & .heading {
+
+  .heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #ffffff;
 
-    & span {
-      color: ${theme.textSecondary};
+    span {
+      color: #9ca3af;
       font-size: 14px;
     }
   }
 
+  @media (max-width: 768px) {
+    .filter-bar {
+      flex-wrap: wrap;
+      gap: 8px;
+
+      button {
+        margin-right: 0;
+      }
+    }
+  }
+
   @media (max-width: 375px) {
-    & .filter-bar {
+    .filter-bar {
       flex-direction: column;
 
-      & button {
+      button {
         width: 100%;
+        margin-right: 0;
       }
     }
   }
